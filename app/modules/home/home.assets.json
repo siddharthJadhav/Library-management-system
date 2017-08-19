@@ -1,0 +1,10 @@
+{
+    "app": [
+        {
+            "serie": false,
+            "name": "home",
+            "files": ["modules/home/home.controller.js", "modules/home/home.factory.js", "common/directive/sweetalert.directive.js","modules/home/home.constant.js","modules/home/home.error.js","modules/home/home.url.js"]
+         }
+        
+    ]
+}

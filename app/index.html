@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="seed">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title set in pageTitle directive -->
+    <title translate="constant.pagetitle"></title>
+    <!-- build:css({.tmp,app}) app.css -->
+    <link href="assets/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/angular-toastr/dist/angular-toastr.min.css" rel="stylesheet" />
+    <!-- endbuild -->
+
+
+
+</head>
+
+<!-- ControllerAs syntax -->
+<!-- Main controller with serveral data used in Inspinia theme on diferent view -->
+
+<body ng-class="{'gray-bg':$state.current.isFullpage}">
+
+    <div ui-view=""></div>
+
+    <!-- build:js scripts/core.js -->
+    <script src="assets/vendor/jquery/dist/jquery.js"></script>
+    <script src="assets/vendor/angular/angular.js"></script>
+    <!-- endbuild -->
+
+
+
+
+
+    <!-- build:js scripts/modules.js -->
+    <script src="assets/vendor/lodash/lodash.min.js"></script>
+    <script src="assets/vendor/angular-route/angular-route.js"></script>
+    <script src="assets/vendor/angular-cookies/angular-cookies.js"></script>
+    <script src="assets/vendor/angular-animate/angular-animate.js"></script>
+    <script src="assets/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="assets/vendor/ngstorage/ngStorage.js"></script>
+    <script src="assets/vendor/angular-ui-utils/ui-utils.js"></script>
+    <script src="assets/vendor/angular-sanitize/angular-sanitize.js"></script>
+    <script src="assets/vendor/angular-resource/angular-resource.js"></script>
+    <script src="assets/vendor/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="assets/vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="assets/vendor/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="assets/vendor/angular-permission/dist/angular-permission.js"></script>
+    <script src="assets/vendor/angular-messages/angular-messages.min.js"></script>
+    <script src="assets/vendor/ng-fab-form/dist/ng-fab-form.min.js"></script>
+    <script src="assets/vendor/angular-toastr/dist/angular-toastr.min.js"></script>
+    <script src="assets/vendor/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+    <script src="assets/vendor/restangular/src/restangular.js"></script>
+    <script src="common/directive/scroll.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/scripts.js -->
+    <script src="assets/script/common.js"></script>
+    <script src="common/grunt-generated/constants.constant.js"></script>
+    <script src="core/app.js"></script>
+    <script src="common/service/error.service.js"></script>
+    <script src="common/provider/provider.js"></script>
+    <script src="common/grunt-generated/route.routes.js"></script>
+    <script src="core/interceptor.js"></script>
+    <script src="assets/vendor/angular-mocks/angular-mocks.js"></script>
+    <!-- endbuild -->
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+angular.module('seed').constant('homeConstant', {"day":"Jan"});

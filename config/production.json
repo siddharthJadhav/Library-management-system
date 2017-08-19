@@ -1,0 +1,9 @@
+{ "analyticsAppId" : "UA-XXXXXXXX-1",
+  "facebookAppId" : "12345678901234",
+  "jsonurl" : "",
+  "name" : "production",
+  "backendurl" : "http://seed.nisostech.com",
+ "urlname":"development",
+ "viewbasepath":"",
+ "jsonpath":"/json/detailJson/"
+}
