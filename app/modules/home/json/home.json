@@ -1,4 +1,4 @@
-angular.module('seed').constant('homeConstant', [{
+[{
     "bookId": 101,
     "bookTitle": "Angular JS",
     "topic": "AngularJS",
@@ -86,4 +86,4 @@ angular.module('seed').constant('homeConstant', [{
     "cost": 2800,
     "imgUrl": "imgs/NodeJS3.JPG",
     "issued": false
-}]);
+}]

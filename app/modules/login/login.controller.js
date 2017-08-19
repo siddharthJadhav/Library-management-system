@@ -11,13 +11,23 @@
         // unresolved
 
 
+        // $http.get('./json/login.json')
+        //     .success(function(data) {
+        //         $scope.json = data;
+        //         console.log("data : ,", data);
+        //     });
+
+
 
         login.signIn = function() {
                 console.log("inn")
                 login.loginUser = loginFactory.login().then(function(res) {
                     console.log("login successfull", res);
                     $state.go('home');
-                }, function() { errorService.error(loginError.login.error.loginerror, "error") })
+                }, function() {
+                    errorService.error(loginError.login.error.loginerror, "error");
+                    $state.go('home');
+                })
 
                 // loginFactory.login();
 
