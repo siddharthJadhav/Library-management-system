@@ -10,7 +10,8 @@
     function homeFactory(Restangular, homeUrl, $enviornment) {
         var exports = {
             getBookData: getBookData,
-            getUserData: getUserData
+            getUserData: getUserData,
+            getLoginUserDate: getLoginUserDate
         };
 
 
@@ -31,6 +32,16 @@
         function getUserData() {
             var url = homeUrl[$enviornment.urlname].user;
             var postType = restangularParams('post', $enviornment.urlname);
+            return Restangular.withConfig(function(RestangularConfigurer) {
+                RestangularConfigurer.setBaseUrl($enviornment.backendurl);
+            })[postType.value](url)[postType.type]({
+                status: status
+            });
+        }
+
+        function getLoginUserDate() {
+            var url = homeUrl[$enviornment.urlname].login;
+            var postType = restangularParams('get', url);
             return Restangular.withConfig(function(RestangularConfigurer) {
                 RestangularConfigurer.setBaseUrl($enviornment.backendurl);
             })[postType.value](url)[postType.type]({

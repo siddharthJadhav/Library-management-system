@@ -13,7 +13,6 @@
         $scope.password;
 
         login.signIn = function() {
-
             login.loginUser = loginFactory.login().then(function(res) {
                     if ($scope.username === res.userName && $scope.password === res.password) {
                         console.log("login successfull", $scope.loginCredential);

@@ -5,6 +5,7 @@ angular.module('seed').constant('homeUrl', {
     },
     "mock": {
         "book": "assets/json/book.json",
-        "user": "assets/json/user.json"
+        "user": "assets/json/user.json",
+        "login": "assets/json/login.json"
     }
 });

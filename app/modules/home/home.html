@@ -5,9 +5,15 @@
     <nav class="nk-navbar nk-navbar-top">
         <div class="container">
             <div class="nk-nav-table">
-                <a href="index.html" class="nk-nav-logo">
-                    <img src="assets/images/logo-light.svg" alt="" width="85" class="nk-nav-logo-onscroll">
-                    <img src="assets/images/logo.svg" alt="" width="85">
+                <a class="nk-nav-logo">
+                    <!-- <img src="assets/images/logo-light.svg" alt="" width="85" class="nk-nav-logo-onscroll"> -->
+                    <img src="assets/images/user.png" alt="" width="85">
+                </a>
+                <a class="col-3">
+                    <h3>User Name : {{home.loginUserDate.userName}}</h3>
+                    <h3>Name : {{home.loginUserDate.name}}</h3>
+                    <h3>Email : {{home.loginUserDate.email}}</h3>
+                    <h3>Phone Number : {{home.loginUserDate.phoneNumber}}</h3>
                 </a>
 
                 <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
@@ -49,8 +55,8 @@
                 <h3 class="portfolio-item-category"> Book Author: {{book.author}}</h3>
                 <h3 class="portfolio-item-category"> Book Topic: {{book.topic}}</h3>
                 <h3 class="portfolio-item-category"> Book Status: {{book.status}}</h3>
-                <button data-toggle="modal" data-target="#issueBook" ng-click="home.selectBook(book)"> Issue Book </button>
-                <button> Return Book </button>
+                <button ng-if="book.status === 'Available'" data-toggle="modal" data-target="#bookModel" ng-click="home.selectBook(book)"> Issue Book </button>
+                <button ng-if="book.status == 'Unavailable'" data-toggle="modal" data-target="#bookModel" ng-click="home.selectBook(book)"> Return Book </button>
             </div>
 
         </div>
@@ -59,15 +65,16 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="issueBook" role="dialog">
+<!-- Modal Issue Book -->
+<div class="modal fade" id="bookModel" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Issue Book</h4>
+                <h4 ng-if="home.book.status === 'Available'" class="modal-title">Issue Book</h4>
+                <h4 ng-if="home.book.status === 'Unavailable'" class="modal-title">Return Book</h4>
             </div>
             <div class="modal-body">
                 <form>
@@ -87,21 +94,34 @@
                             <h3 class="portfolio-item-title h3"> Book Title: {{home.book.bookTitle}}</h3>
                             <h3 class="portfolio-item-category"> Book Author: {{home.book.author}}</h3>
                             <h3 class="portfolio-item-category"> Book Topic: {{home.book.topic}}</h3>
-                            Select User: <select ng-model="home.selectedUserName" ng-options="user.userName for user in home.userList"></select>
-                            <div ng-show="home.selectedUserName">
-                                <h3 class="portfolio-item-title h3"> User Name: {{home.selectedUserName.userName}}</h3>
-                                <h3 class="portfolio-item-title h3"> Name: {{home.selectedUserName.name}}</h3>
-                                <h3 class="portfolio-item-category"> Email Id: {{home.selectedUserName.email}}</h3>
-                                <h3 class="portfolio-item-category"> Phone Number: {{home.selectedUserName.phone}}</h3>
-                                Issue Date : <input type="text" disabled ng-model="home.currentDate | date">
+                            <div ng-if="home.book.status === 'Available'">
+                                Select User: <select ng-model="home.selectedUserName" ng-options="user.userName for user in home.userList"></select>
+                                <div ng-if="home.selectedUserName">
+                                    <h3 class="portfolio-item-title h3"> User Name: {{home.selectedUserName.userName}}</h3>
+                                    <h3 class="portfolio-item-title h3"> Name: {{home.selectedUserName.name}}</h3>
+                                    <h3 class="portfolio-item-category"> Email Id: {{home.selectedUserName.email}}</h3>
+                                    <h3 class="portfolio-item-category"> Phone Number: {{home.selectedUserName.phone}}</h3>
+                                    <h3 class="portfolio-item-category">Issue Date : {{home.currentDate | date}}</h3>
+                                    Return Date : <input type="text" ng-model="home.returnDate" required>
+                                    <button ng-if="home.returnDate" type="button" class="btn btn-default" color="grey" data-dismiss="modal" ng-click="home.issueBook()">Issue Book</button>
+                                </div>
+                            </div>
+                            <div ng-if="home.book.status === 'Unavailable'">
+                                <h3 class="portfolio-item-title h3"> User Name: {{home.book.user.userName}}</h3>
+                                <h3 class="portfolio-item-title h3"> Name: {{home.book.user.name}}</h3>
+                                <h3 class="portfolio-item-category"> Email Id: {{home.book.user.email}}</h3>
+                                <h3 class="portfolio-item-category"> Phone Number: {{home.book.user.phone}}</h3>
+                                <h3 class="portfolio-item-category">Issue Date : {{home.book.issueDate | date}}</h3>
+                                <h3 class="portfolio-item-category">Return Date : {{home.book.returnDate}}</h3>
+                                <button type="button" class="btn btn-default" color="grey" data-dismiss="modal" ng-click="home.returneBook()">Return Book</button>
                             </div>
                         </div>
 
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> -->
             </div>
         </div>
 
