@@ -64,15 +64,14 @@
         }
 
         home.returneBook = function() {
+            home.book.type = "Return";
+            localStorage.setItem("BookJson", JSON.stringify(home.bookList));
+            home.SaveTransction(home.book);
             home.book.user = {};
             home.book.status = "Available";
             home.book.issueDate = "";
             home.book.returnDate = "";
-            home.book.type = "Return";
-
             home.bookList[home.book.bookId - 1] = home.book
-            localStorage.setItem("BookJson", JSON.stringify(home.bookList));
-            home.SaveTransction(home.book);
         }
 
         home.SaveTransction = function(transaction) {

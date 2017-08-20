@@ -1,0 +1,9 @@
+{
+    "app": [{
+            "serie": false,
+            "name": "transaction",
+            "files": ["modules/transaction/transaction.controller.js", "modules/transaction/transaction.css", "modules/transaction/transaction.factory.js", "common/directive/sweetalert.directive.js", "modules/transaction/transaction.constant.js", "modules/transaction/transaction.error.js", "modules/transaction/transaction.url.js"]
+        }
+
+    ]
+}
