@@ -4,6 +4,6 @@ angular.module('seed').constant('loginUrl', {
 
     },
     "mock": {
-        "login": "login/json/login.json"
+        "login": "assets/json/login.json"
     }
 });

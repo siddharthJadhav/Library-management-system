@@ -1,12 +1,11 @@
-{ "analyticsAppId" : "UA-XXXXXXXX-1",
-  "facebookAppId" : "803251069707321",
-  "jsonurl" : "",
-  "name" : "development",
-  "backendurl" : "http://seed.nisostech.com/",
- "backendurlngo" : "http://seed.nisostech.com/",
-  "backendurlsocial" : "http://seed.nisostech.com/",
- "urlname":"development",
- "viewbasepath":"",
- "jsonpath":"/json/detailJson/"
+{
+    "analyticsAppId": "UA-XXXXXXXX-1",
+    "facebookAppId": "803251069707321",
+    "jsonurl": "",
+    "name": "development",
+    "backendurl": "http://localhost:9005",
+    "urlname": "development",
+    "viewbasepath": "",
+    "jsonpath": "/json/detailJson/"
 
 }

@@ -6,62 +6,29 @@
         .controller('LoginController', LoginController);
 
 
-    function LoginController(loginFactory, errorService, loginError, $state, $http) {
+    function LoginController(loginFactory, errorService, loginError, $state, $http, $scope) {
         var login = this;
         // unresolved
-
-
-        // $http.get('./json/login.json')
-        //     .success(function(data) {
-        //         $scope.json = data;
-        //         console.log("data : ,", data);
-        //     });
-
-
+        $scope.username;
+        $scope.password;
 
         login.signIn = function() {
-                console.log("inn")
-                login.loginUser = loginFactory.login().then(function(res) {
-                    console.log("login successfull", res);
-                    $state.go('home');
-                }, function() {
+
+            login.loginUser = loginFactory.login().then(function(res) {
+                    if ($scope.username === res.userName && $scope.password === res.password) {
+                        console.log("login successfull", $scope.loginCredential);
+                        errorService.error(loginError.login.success.loginsuccess, "success");
+                        $state.go('home');
+                    } else {
+                        errorService.error(loginError.login.error.loginerror, "error");
+                    }
+                },
+                function() {
                     errorService.error(loginError.login.error.loginerror, "error");
-                    $state.go('home');
+                    // $state.go('home');
                 })
 
-                // loginFactory.login();
-
-            }
-            // errorService.error(loginError.login.error.loginerror, "success")
-
-        // login.randomData = [];
-        // for (var i = 0; i < 500; i++) {
-        //     login.randomData.push({
-        //         'name': 'check' + i
-        //     })
-        // }
-
-        // var ctrl = this;
-
-        // ctrl.phones = [];
-        // ctrl.newPhone = {
-        //     name: ''
-        // };
-
-        // ctrl.getPhones = function() {
-        //     $http.get('/phones').then(function(response) {
-        //         ctrl.phones = response.data;
-        //     });
-        // };
-
-        // ctrl.addPhone = function(phone) {
-        //     $http.post('/phones', phone).then(function() {
-        //         ctrl.newPhone = { name: '' };
-        //         return ctrl.getPhones();
-        //     });
-        // };
-
-        // ctrl.getPhones();
+        }
 
 
     }

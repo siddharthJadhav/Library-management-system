@@ -8,22 +8,27 @@
     function HomeController(homeFactory, errorService, homeError) {
         var home = this;
         // unresolved
+        home.bookList;
 
-        home.signIn = function() {
-            console.log("inn")
-            home.homeUser = homeFactory.home().then(function() {}, function() {})
+        console.log("home");
+        active();
 
+        function active() {
+
+            getBookData();
+
+
+            function getBookData() {
+                console.log("inn")
+                homeFactory.getBookData().then(function(res) {
+                    console.log("res : ", res);
+                    home.bookList = res;
+                }, function(err) {
+                    console.log(err);
+                })
+            }
 
         }
-        errorService.error(homeError.home.error.homeerror, "success")
-
-        home.randomData = [];
-        for (var i = 0; i < 500; i++) {
-            home.randomData.push({
-                'name': 'check' + i
-            })
-        }
-
 
     }
 })();

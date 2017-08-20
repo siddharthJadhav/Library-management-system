@@ -3,6 +3,9 @@ angular.module('seed').constant('loginError', {
         "title": "Start",
         "error": {
             "loginerror": "Invalid User Name And Password"
+        },
+        "success": {
+            "loginsuccess": "login successfully"
         }
     }
 });

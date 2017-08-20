@@ -1,7 +1,4 @@
 {
-	"email": "admin@seed.com",
-	"roles": [
-    	"ROLE_SUPERADMIN"
-	],
-	"access_token": "bqtnqbts7ojq22bvs86smfgtioq4dgii"
+    "userName": "libraryan",
+    "password": "123456"
 }
