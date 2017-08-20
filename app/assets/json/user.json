@@ -1,0 +1,31 @@
+[{
+        "userName": "John",
+        "name": "John Snow",
+        "email": "john@gmail.com",
+        "phone": "1234567891"
+    },
+    {
+        "userName": "Ram",
+        "name": "Ram Sharma",
+        "email": "Ram@gmail.com",
+        "phone": "1234567892"
+    },
+    {
+        "userName": "Siddharth",
+        "name": "Siddharth Jadhav",
+        "email": "Siddharth@gmail.com",
+        "phone": "1234567893"
+    },
+    {
+        "userName": "Ajay",
+        "name": "Ajay Jagdale",
+        "email": "Ajay@gmail.com",
+        "phone": "1234567894"
+    },
+    {
+        "userName": "Vishal",
+        "name": "Vishal Shinde",
+        "email": "Vishal@gmail.com",
+        "phone": "1234567895"
+    }
+]

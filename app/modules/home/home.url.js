@@ -1,9 +1,10 @@
 angular.module('seed').constant('homeUrl', {
     "development": {
-        "home": "api/home"
+        "book": "api/book"
 
     },
     "mock": {
-        "home": "assets/json/book.json"
+        "book": "assets/json/book.json",
+        "user": "assets/json/user.json"
     }
 });

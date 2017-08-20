@@ -21,7 +21,7 @@
                         <a href="portfolio.html">Portfolio</a>
                     </li>
                     <li>
-                        <a href="blog.html">Blog</a>
+                        <a data-toggle="modal" data-target="#issueBook">Blog</a>
                     </li>
                 </ul>
             </div>
@@ -49,7 +49,7 @@
                 <h3 class="portfolio-item-category"> Book Author: {{book.author}}</h3>
                 <h3 class="portfolio-item-category"> Book Topic: {{book.topic}}</h3>
                 <h3 class="portfolio-item-category"> Book Status: {{book.status}}</h3>
-                <button> Issue Book </button>
+                <button data-toggle="modal" data-target="#issueBook" ng-click="home.selectBook(book)"> Issue Book </button>
                 <button> Return Book </button>
             </div>
 
@@ -57,27 +57,53 @@
 
         <div class="nk-gap-4"></div>
     </div>
+</div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+<!-- Modal -->
+<div class="modal fade" id="issueBook" role="dialog">
+    <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Issue Book</h4>
             </div>
+            <div class="modal-body">
+                <form>
 
+                    <div class="nk-portfolio-list nk-isotope nk-isotope-3-cols">
+
+
+                        <div class="nk-isotope-item">
+                            <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1">
+                                <div class="nk-portfolio-item-image">
+                                    <div style="background-image: url('{{home.book.imgUrl}}');"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="portfolio-item-title h3"> Book Id: {{home.book.bookId}}</h3>
+                            <h3 class="portfolio-item-title h3"> Book Title: {{home.book.bookTitle}}</h3>
+                            <h3 class="portfolio-item-category"> Book Author: {{home.book.author}}</h3>
+                            <h3 class="portfolio-item-category"> Book Topic: {{home.book.topic}}</h3>
+                            Select User: <select ng-model="home.selectedUserName" ng-options="user.userName for user in home.userList"></select>
+                            <div ng-show="home.selectedUserName">
+                                <h3 class="portfolio-item-title h3"> User Name: {{home.selectedUserName.userName}}</h3>
+                                <h3 class="portfolio-item-title h3"> Name: {{home.selectedUserName.name}}</h3>
+                                <h3 class="portfolio-item-category"> Email Id: {{home.selectedUserName.email}}</h3>
+                                <h3 class="portfolio-item-category"> Phone Number: {{home.selectedUserName.phone}}</h3>
+                                Issue Date : <input type="text" disabled ng-model="home.currentDate | date">
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
+
     </div>
-
-
 </div>
